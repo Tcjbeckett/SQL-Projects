@@ -49,13 +49,13 @@ public class Menu2 {
         while(choice != EXIT){ // our exit option
             //Check the Choice Value
             if (choice == options[0]) {  //updated all the hard coded choices with the menuItems array
-                System.out.println(menuItems[0]);
+                System.out.printf("%s $%.2f\n", menuItems[0], prices[0]); //changed to print f so the price can be formatted correctly
             } else if (choice == options[1]) {
-                System.out.println(menuItems[1]);
+                System.out.printf("%s $%.2f\n", menuItems[1], prices[1]);
             } else if (choice == options[2]) {
-                System.out.println(menuItems[2]);
+                System.out.printf("%s $%.2f\n", menuItems[2], prices[2]);
             } else if (choice == options[3]) {
-                System.out.println(menuItems[3]);
+                System.out.printf("%s $%.2f\n", menuItems[3], prices[3]);
             } // You don't need the else if for the exit choice because it would automatically end
 
             //Display Menu Again (This should also be a method...this code is not dry)
