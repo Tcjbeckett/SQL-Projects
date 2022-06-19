@@ -31,6 +31,9 @@ public class Menu2 {
         int options[] = {1,2,3,4};
         String menuItems [] = {"Spring Water", "Cherry Pepsi", "Orange Juice", "Exit"};
 
+        //Exit option - this was our number 4. Exit from the original menu
+        int EXIT = options[options.length-1]; //the last value in the option array
+
         //Display Menu
         displayMenu(options, menuItems); // passing in the two arrays to the display menu to compliment the loop we added to the display menu method
 
@@ -39,14 +42,14 @@ public class Menu2 {
 
         //Menu Loop - this would be a separate method
 
-        while(choice !=4){
+        while(choice != EXIT){ // our exit option
             //Check the Choice Value
-            if (choice == 1) {
-                System.out.println("Spring Water");
-            } else if (choice == 2) {
-                System.out.println("Cherry Pepsi");
-            } else if (choice == 3) {
-                System.out.println("Orange Juice");
+            if (choice == options[0]) {  //updated all the hard coded choices with the menuItems array
+                System.out.println(menuItems[0]);
+            } else if (choice == options[1]) {
+                System.out.println(menuItems[1]);
+            } else if (choice == options[2]) {
+                System.out.println(menuItems[2]);
             } // You don't need the else if 4 choice because it would automatically end
 
             //Display Menu Again (This should also be a method...this code is not dry)
