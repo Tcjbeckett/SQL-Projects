@@ -1,7 +1,7 @@
 import java.util.InputMismatchException;
 import  java.util.Scanner;
 
-public class Menu {
+public class Menu2 {
 
     public static void main(String[] args) {
         //Setup Scanner
@@ -55,6 +55,6 @@ public class Menu {
         }
         System.out.println("Goodbye and Come Again!");
 
-        }
     }
+}
 
