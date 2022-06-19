@@ -3,13 +3,7 @@ import  java.util.Scanner;
 
 public class Menu2 {
 
-    public static void main(String[] args) {
-        //Setup Scanner
-        Scanner scanner = new Scanner(System.in);
-
-        //User Choice
-        int choice;
-
+    public static void displayMenu(){
         //Display Menu
         System.out.println("--------");
         System.out.println("M E N U");
@@ -20,6 +14,18 @@ public class Menu2 {
         System.out.println("4. Exit");
         System.out.println("===================");
         System.out.print("Enter choice: "); //didn't use a println so the input can be on the same line
+
+    }
+
+    public static void main(String[] args) {
+        //Setup Scanner
+        Scanner scanner = new Scanner(System.in);
+
+        //User Choice
+        int choice;
+
+        //Display Menu
+        displayMenu();
 
         //Get choice from user
         choice = scanner.nextInt();
@@ -38,16 +44,8 @@ public class Menu2 {
 
             //Display Menu Again (This should also be a method...this code is not dry)
             //a try catch would be here for wrong inputs as well as a do while, if it was a method
+            displayMenu();
 
-            System.out.println("--------");
-            System.out.println("M E N U");
-            System.out.println("--------");
-            System.out.println("1. Spring Water");
-            System.out.println("2. Cherry Pepsi");
-            System.out.println("3. Orange Juice");
-            System.out.println("4. Exit");
-            System.out.println("===================");
-            System.out.print("Enter choice: "); //didn't use a println so the input can be on the same line
 
             //Get User Choice Again
             choice = scanner.nextInt();
