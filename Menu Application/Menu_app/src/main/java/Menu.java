@@ -25,8 +25,9 @@ public class Menu {
         //Get choice from user
         choice = scanner.nextInt();
 
-        //Check choice value
-        //a try catch would be here for wrong inputs as well as a do while, if it was a method
+        //Menu Loop - this would be a separate method
+        //Check the Choice Value
+        while(choice !=4){
 
             if (choice == 1) {
                 System.out.println("Spring Water");
@@ -34,9 +35,27 @@ public class Menu {
                 System.out.println("Cherry Pepsi");
             } else if (choice == 3) {
                 System.out.println("Orange Juice");
-            } else if (choice == 4) {
-                System.out.println("Thank you!");
-            }
+            } // You don't need the else if 4 choice because it would automatically end
+
+            //Display Menu (This should also be a method...this code is not dry)
+            //a try catch would be here for wrong inputs as well as a do while, if it was a method
+
+            System.out.println("--------");
+            System.out.println("M E N U");
+            System.out.println("--------");
+            System.out.println("1. Spring Water");
+            System.out.println("2. Cherry Pepsi");
+            System.out.println("3. Orange Juice");
+            System.out.println("4. Exit");
+            System.out.println("===================");
+            System.out.print("Enter choice: "); //didn't use a println so the input can be on the same line
+
+            //Get User Choice Again
+            choice = scanner.nextInt();
+
+        }
+        System.out.println("Goodbye and Come Again!");
+
         }
     }
 
