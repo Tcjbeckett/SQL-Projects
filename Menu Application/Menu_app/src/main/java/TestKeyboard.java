@@ -17,5 +17,16 @@ public class TestKeyboard {
 
         //Output to make sure it works
         System.out.println("You entered the value of :" + intInput);
+
+        //Test Case 2: readDouble
+        double doubleInput;
+        String promptMsg2 = "Enter a decimal value: ";
+        String errorMsg2 = "Invalid entry, enter an decimal value";
+
+        //Call to readInteger
+        doubleInput = keyboard.readDouble(promptMsg2, errorMsg2);
+
+        //Output to make sure it works
+        System.out.println("You entered the value of :" + doubleInput);
     }
 }
