@@ -1,5 +1,5 @@
 public class MenuItem {
-    
+
     //instance variables
     private String name;
     private double price;
