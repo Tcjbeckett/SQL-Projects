@@ -28,5 +28,16 @@ public class TestKeyboard {
 
         //Output to make sure it works
         System.out.println("You entered the value of :" + doubleInput);
+
+        //Test Case 3: readInteger with low and high
+        int intInput2;
+        String promptMsg3 = "Enter an integer value between (1-10): ";
+        String errorMsg3 = "Invalid entry, enter an integer value between (1-10)";
+
+        //Call to readInteger
+        intInput2 = keyboard.readInteger(promptMsg3, errorMsg3,1, 10);
+
+        //Output to make sure it works
+        System.out.println("You entered the value of :" + intInput2);
     }
 }
