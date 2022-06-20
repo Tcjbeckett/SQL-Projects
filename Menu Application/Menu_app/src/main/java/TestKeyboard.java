@@ -35,7 +35,7 @@ public class TestKeyboard {
         String errorMsg3 = "Invalid entry, enter an integer value between (1-10)";
 
         //Call to readInteger
-        intInput2 = keyboard.readInteger(promptMsg3, errorMsg3,1, 10);
+        intInput2 = keyboard.readInteger(promptMsg3, errorMsg3,1, 10); //takes in the range as well
 
         //Output to make sure it works
         System.out.println("You entered the value of :" + intInput2);

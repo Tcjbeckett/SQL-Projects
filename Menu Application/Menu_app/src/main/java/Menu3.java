@@ -19,13 +19,15 @@ public class Menu3 {
         System.out.printf("%d. %s \n", options[options.length-1], menuItems[menuItems.length-1]); //printing the last item in both arrays
 
         System.out.println("===================");
-        System.out.print("Enter choice: "); //didn't use a println so the input can be on the same line
 
     }
 
     public static void main(String[] args) {
         //Setup Scanner
         Scanner scanner = new Scanner(System.in);
+
+        //Create a Keyboard object for keyboard validation
+        Keyboard keyboard = new Keyboard();
 
         //User Choice
         int choice;
@@ -41,8 +43,8 @@ public class Menu3 {
         //Display Menu
         displayMenu(options, menuItems, prices); // passing in the two arrays to the display menu to compliment the loop we added to the display menu method
 
-        //Get choice from user
-        choice = scanner.nextInt();
+        //Get choice from user ***Using the Keyboard class method****
+        choice = keyboard.readInteger("Enter choice: ", "Error: invalid input", 1 , EXIT); //low is 1 and high is EXIT last options
 
         //Menu Loop - this would be a separate method
 
@@ -64,7 +66,7 @@ public class Menu3 {
 
 
             //Get User Choice Again
-            choice = scanner.nextInt();
+            choice = keyboard.readInteger("Enter choice: ", "Error: invalid input", 1 , EXIT); //low is 1 and high is EXIT last options
 
         }
         System.out.println("Goodbye and Come Again!");

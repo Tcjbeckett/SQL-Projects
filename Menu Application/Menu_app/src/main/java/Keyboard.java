@@ -34,7 +34,7 @@ public class Keyboard {
    }
 
    //This readInteger method creates a range criteria
-   public int readInteger(String promptMsg, String errorMsg, int low, int high){
+   public int readInteger(String promptMsg, String errorMsg, int low, int high){ //added low and high range
       int num = 0;
       String strInput;
       boolean valid = false;
@@ -48,7 +48,7 @@ public class Keyboard {
          //Try to convert the String to an int
          try{
             num = Integer.parseInt(strInput);
-            if(num >= low && num <= high) {
+            if(num >= low && num <= high) {  //added an if statement to evaluate the range
                valid = true;
             }else{
                System.out.println(errorMsg); //Same error message as catch
