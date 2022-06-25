@@ -7,34 +7,34 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import javax.sql.DataSource;
 
 public class Book {
-    private int book_id;
+    private int bookId;
 
 
     private String title;
 
-    private int author_id;
+    private int authorId;
 
     private int isbn;
 
-    private int sale_price;
+    private int salePrice;
 
     public Book(){}
 
     public Book(int book_id, String title, int author_id, int isbn, int sale_price){
-        this.book_id = book_id;
+        this.bookId = book_id;
         this.title = title;
-        this.author_id = author_id;
+        this.authorId = author_id;
         this.isbn = isbn;
-        this.sale_price = sale_price;
+        this.salePrice = sale_price;
     }
 
 
     public int getBook_id() {
-        return book_id;
+        return bookId;
     }
 
     public void setBook_id(int book_id) {
-        this.book_id = book_id;
+        this.bookId = book_id;
     }
 
     public String getTitle() {
@@ -46,11 +46,11 @@ public class Book {
     }
 
     public int getAuthor_id() {
-        return author_id;
+        return authorId;
     }
 
     public void setAuthor_id(int author_id) {
-        this.author_id = author_id;
+        this.authorId = author_id;
     }
 
     public int getIsbn() {
@@ -62,10 +62,10 @@ public class Book {
     }
 
     public int getSale_price() {
-        return sale_price;
+        return salePrice;
     }
 
     public void setSale_price(int sale_price) {
-        this.sale_price = sale_price;
+        this.salePrice = sale_price;
     }
 }
