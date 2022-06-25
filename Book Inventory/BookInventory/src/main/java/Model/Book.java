@@ -9,7 +9,6 @@ import javax.sql.DataSource;
 public class Book {
     private int bookId;
 
-
     private String title;
 
     private int authorId;
