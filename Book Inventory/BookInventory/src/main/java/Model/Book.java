@@ -67,4 +67,15 @@ public class Book {
     public void setSale_price(int sale_price) {
         this.salePrice = sale_price;
     }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "bookId=" + bookId +
+                ", title='" + title + '\'' +
+                ", authorId=" + authorId +
+                ", isbn=" + isbn +
+                ", salePrice=" + salePrice +
+                '}';
+    }
 }
