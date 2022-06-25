@@ -10,7 +10,7 @@ public class BookInventoryCLI {
 
 
     public static void main(String[] args) {
-        
+
             BasicDataSource dataSource = new BasicDataSource();
             dataSource.setUrl("jdbc:postgresql://localhost:5432/BookInventory");
             dataSource.setUsername("postgres");
@@ -32,7 +32,7 @@ public class BookInventoryCLI {
     private void run(){
 
         System.out.println(bookDao.getBook(5));
-        System.out.println("trust");
+        System.out.println("Trust The Process");
 
     }
 }
