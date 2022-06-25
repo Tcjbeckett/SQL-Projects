@@ -1,12 +1,22 @@
 import Dao.BookDao;
 import Dao.JdbcBookDao;
 import org.apache.commons.dbcp2.BasicDataSource;
+import view.Menu;
 
 import javax.sql.DataSource;
+import java.util.Scanner;
 
 public class BookInventoryCLI {
 
+    private static final String MAIN_MENU_OPTION_DISPLAY_BOOKS = "Display Book Details";
+    private static final String MAIN_MENU_OPTIONS_DISPLAY_AUTHOR = "Display Author Details";
+    private static final String MAIN_MENU_OPTIONS_EXIT = "Exit";
+    private static final String[] MAIN_MENU_OPTIONS = {MAIN_MENU_OPTION_DISPLAY_BOOKS, MAIN_MENU_OPTIONS_DISPLAY_AUTHOR, MAIN_MENU_OPTIONS_EXIT};
+
     public static BookDao bookDao;
+    private Menu menu;
+
+    Scanner scanner = new Scanner(System.in);
 
 
     public static void main(String[] args) {
@@ -25,14 +35,39 @@ public class BookInventoryCLI {
     }
 
     //constructor
+
+
     public BookInventoryCLI(DataSource dataSource){
 
     }
 
-    private void run(){
+    public BookInventoryCLI(Menu menu){
+        this.menu = menu;
 
-        System.out.println(bookDao.getBook(5));
+    }
+
+    private void run(){
+        //Scanner scanner = new Scanner(System.in);
+        boolean running = true;
+        String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
+        while(running){
+            if(choice.equals(MAIN_MENU_OPTION_DISPLAY_BOOKS)){
+                displayBookDetails();
+            }else if(choice.equals(MAIN_MENU_OPTIONS_DISPLAY_AUTHOR)){
+                System.out.println("I haven't written this code yet");
+            }
+        }
+
         System.out.println("Trust The Process");
 
+    }
+
+    private void displayBookDetails(){
+
+        System.out.println("Please input a Book Id");
+
+        String userInput = scanner.nextLine();
+
+        System.out.println(bookDao.getBook(Integer.parseInt(userInput)));
     }
 }
