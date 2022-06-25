@@ -11,12 +11,12 @@ public class Menu {
     private Scanner in;
 
     public Menu (InputStream input, OutputStream output){
-        this.out = new PrintWriter(out);
+        this.out = new PrintWriter(output);
         this.in = new Scanner(input);
     }
 
     //default menu
-    public Object getChoiceFromOptions(Object[] options){
+    public Object getChoiceFromOptions(Object[] options) throws NullPointerException{
         Object choice = null;
         while(choice == null){
             displayMenuOptions(options);

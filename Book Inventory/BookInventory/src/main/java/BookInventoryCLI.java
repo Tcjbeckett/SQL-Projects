@@ -19,12 +19,12 @@ public class BookInventoryCLI {
     Scanner scanner = new Scanner(System.in);
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
 
-            BasicDataSource dataSource = new BasicDataSource();
-            dataSource.setUrl("jdbc:postgresql://localhost:5432/BookInventory");
-            dataSource.setUsername("postgres");
-            dataSource.setPassword("postgres1");
+        BasicDataSource dataSource = new BasicDataSource();
+        dataSource.setUrl("jdbc:postgresql://localhost:5432/BookInventory");
+        dataSource.setUsername("postgres");
+        dataSource.setPassword("postgres1");
 
         BookInventoryCLI application = new BookInventoryCLI(dataSource);
 
@@ -35,39 +35,44 @@ public class BookInventoryCLI {
     }
 
     //constructor
-
-
-    public BookInventoryCLI(DataSource dataSource){
+    public BookInventoryCLI(DataSource dataSource) {
 
     }
 
-    public BookInventoryCLI(Menu menu){
-        this.menu = menu;
+    public BookInventoryCLI(Menu menu) {
+        this.menu = new Menu(System.in, System.out);
 
     }
 
-    private void run(){
+    private void run() {
         //Scanner scanner = new Scanner(System.in);
+
         boolean running = true;
         String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
-        while(running){
-            if(choice.equals(MAIN_MENU_OPTION_DISPLAY_BOOKS)){
-                displayBookDetails();
-            }else if(choice.equals(MAIN_MENU_OPTIONS_DISPLAY_AUTHOR)){
-                System.out.println("I haven't written this code yet");
+
+            while (choice !=null ) {
+                if (choice.equals("1")) {
+                    System.out.println("Please input a Book Id");
+                    String userInput = scanner.nextLine();
+                    System.out.println(bookDao.getBook(Integer.parseInt(userInput)));
+
+                } else if (choice.equals(MAIN_MENU_OPTIONS_DISPLAY_AUTHOR)) {
+                    System.out.println("I haven't written this code yet");
+                }
             }
+
+            System.out.println("Trust The Process");
+
+        //choice.equals(MAIN_MENU_OPTION_DISPLAY_BOOKS)
+    }
+
+        private void displayBookDetails(){
+
+//            System.out.println("Please input a Book Id");
+//
+//            String userInput = scanner.nextLine();
+//
+//            System.out.println(bookDao.getBook(Integer.parseInt(userInput)));
         }
-
-        System.out.println("Trust The Process");
-
     }
 
-    private void displayBookDetails(){
-
-        System.out.println("Please input a Book Id");
-
-        String userInput = scanner.nextLine();
-
-        System.out.println(bookDao.getBook(Integer.parseInt(userInput)));
-    }
-}
