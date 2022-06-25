@@ -1,0 +1,19 @@
+SELECT * FROM book
+SELECT * FROM author
+
+--Add authors first
+INSERT INTO author(first_name, last_name)
+VALUES 
+('Bob', 'Hope'),
+('Michael', 'Jordan'),
+('Ally', 'Terray');
+
+--Then add books
+INSERT INTO book (title, author_id, isbn, sale_price)
+VALUES ('Fun for Bob', 4, 45657, 19.95),
+('Basketball', 5, 45658, 29.95),('World Knowledge', 6, 456512, 5.50);
+
+
+--update authors
+UPDATE author SET book_id = 2
+WHERE first_name = 'Sarah';
