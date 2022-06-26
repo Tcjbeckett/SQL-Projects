@@ -72,6 +72,15 @@ public class JdbcBookDao implements BookDao {
         return updatedBook;
     }
 
+    @Override
+    public void removeBook(int bookId){
+//        String sql = "DELETE FROM author WHERE book_id = ?";
+//        jdbcTemplate.update(sql, bookId);
+
+        String sql = "DELETE FROM book WHERE book_id = ?";
+        jdbcTemplate.update(sql, bookId);
+    }
+
 
     private Book mapToBook(SqlRowSet results){
         Book book = new Book();

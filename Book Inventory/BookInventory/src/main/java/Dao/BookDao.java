@@ -16,4 +16,6 @@ public interface BookDao {
 
     Book updateBook(Book updatedBook);
     //**updateBook updates sale price only**//
+
+    public void removeBook(int bookId);
 }
