@@ -14,7 +14,7 @@ public class BookInventoryCLI {
     private static final String[] MAIN_MENU_OPTIONS = {MAIN_MENU_OPTION_DISPLAY_BOOKS, MAIN_MENU_OPTIONS_DISPLAY_AUTHOR, MAIN_MENU_OPTIONS_EXIT};
 
     public static BookDao bookDao;
-    private Menu menu;
+    private Menu menu = new Menu(System.in, System.out);
 
     Scanner scanner = new Scanner(System.in);
 
@@ -50,7 +50,7 @@ public class BookInventoryCLI {
         boolean running = true;
         String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
 
-            while (choice !=null ) {
+            while (choice == null ) {
                 if (choice.equals("1")) {
                     System.out.println("Please input a Book Id");
                     String userInput = scanner.nextLine();

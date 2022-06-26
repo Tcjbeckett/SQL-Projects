@@ -16,7 +16,7 @@ public class Menu {
     }
 
     //default menu
-    public Object getChoiceFromOptions(Object[] options) throws NullPointerException{
+    public Object getChoiceFromOptions(Object[] options){
         Object choice = null;
         while(choice == null){
             displayMenuOptions(options);
