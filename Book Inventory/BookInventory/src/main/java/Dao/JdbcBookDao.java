@@ -31,7 +31,7 @@ public class JdbcBookDao implements BookDao {
     @Override
     public List<Book> getBooksByBookId(){
         List<Book> books = new ArrayList<>();
-        String sql = "SELECT * FROM book";
+        String sql = "SELECT * FROM book ORDER BY book_id";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()){
             Book book = mapToBook(results);
@@ -39,6 +39,30 @@ public class JdbcBookDao implements BookDao {
         }
 
         return books;
+    }
+
+    @Override
+    public List<Book> getBooksByAuthorId(int authorId){
+        List<Book> books = new ArrayList<>();
+        String sql = "SELECT * FROM book WHERE author_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, authorId);
+        while(results.next()){
+            Book book = mapToBook(results);
+            books.add(book);
+        }
+        return books;
+    }
+
+    @Override
+    public Book createBook(Book newBook){
+        String sql = "INSERT INTO book VALUES (DEFAULT, ?, ?, ?, ?) RETURNING book_id;";
+        Integer newId = jdbcTemplate.queryForObject(sql, Integer.class, newBook.getTitle(), newBook.getAuthor_id(), newBook.getIsbn(), newBook.getSale_price());
+
+        if(newId != null){
+            newBook.setBook_id(newId);
+        }
+
+        return newBook;
     }
 
 
