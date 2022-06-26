@@ -5,6 +5,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 
 import javax.sql.DataSource;
+import java.util.ArrayList;
+import java.util.List;
 
 public class JdbcBookDao implements BookDao {
 
@@ -24,6 +26,19 @@ public class JdbcBookDao implements BookDao {
         }
 
         return book;
+    }
+
+    @Override
+    public List<Book> getBooksByBookId(){
+        List<Book> books = new ArrayList<>();
+        String sql = "SELECT * FROM book";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while(results.next()){
+            Book book = mapToBook(results);
+            books.add(book);
+        }
+
+        return books;
     }
 
 

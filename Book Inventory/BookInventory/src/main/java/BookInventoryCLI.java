@@ -9,9 +9,10 @@ import java.util.Scanner;
 public class BookInventoryCLI {
 
     private static final String MAIN_MENU_OPTION_DISPLAY_BOOKS = "Display Book Details";
+    private static final String MAIN_MENU_OPTION_DISPLAY_ALL_BOOKS = "Display Book Details For All Books";
     private static final String MAIN_MENU_OPTIONS_DISPLAY_AUTHOR = "Display Author Details";
     private static final String MAIN_MENU_OPTIONS_EXIT = "Exit";
-    private static final String[] MAIN_MENU_OPTIONS = {MAIN_MENU_OPTION_DISPLAY_BOOKS, MAIN_MENU_OPTIONS_DISPLAY_AUTHOR, MAIN_MENU_OPTIONS_EXIT};
+    private static final String[] MAIN_MENU_OPTIONS = {MAIN_MENU_OPTION_DISPLAY_BOOKS, MAIN_MENU_OPTION_DISPLAY_ALL_BOOKS, MAIN_MENU_OPTIONS_DISPLAY_AUTHOR, MAIN_MENU_OPTIONS_EXIT};
 
     public static BookDao bookDao;
     private Menu menu = new Menu(System.in, System.out);
@@ -58,9 +59,14 @@ public class BookInventoryCLI {
                     System.out.println(bookDao.getBook(Integer.parseInt(userInput)));
                     run();
 
-                } else if (choice.equals("Display Author Details")) {
+                } else if(choice.equals("Display Book Details For All Books")){
+                    System.out.println(bookDao.getBooksByBookId());
+                    run();
+
+                }else if (choice.equals("Display Author Details")) {
                     System.out.println("I haven't written this code yet");
                     run();
+
                 }else if(choice.equals("Exit")){
                     run();
                 }
@@ -70,8 +76,6 @@ public class BookInventoryCLI {
 
     }
 
-        private void displayBookDetails(){
 
-        }
-    }
+}
 
