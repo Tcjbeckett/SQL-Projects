@@ -45,34 +45,33 @@ public class BookInventoryCLI {
     }
 
     private void run() {
-        //Scanner scanner = new Scanner(System.in);
 
         boolean running = true;
         String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
 
-            while (choice == null ) {
-                if (choice.equals("1")) {
+
+            while (running ) {
+                if (choice.equals("Display Book Details")) {
+
                     System.out.println("Please input a Book Id");
                     String userInput = scanner.nextLine();
                     System.out.println(bookDao.getBook(Integer.parseInt(userInput)));
+                    run();
 
-                } else if (choice.equals(MAIN_MENU_OPTIONS_DISPLAY_AUTHOR)) {
+                } else if (choice.equals("Display Author Details")) {
                     System.out.println("I haven't written this code yet");
+                    run();
+                }else if(choice.equals("Exit")){
+                    run();
                 }
             }
 
             System.out.println("Trust The Process");
 
-        //choice.equals(MAIN_MENU_OPTION_DISPLAY_BOOKS)
     }
 
         private void displayBookDetails(){
 
-//            System.out.println("Please input a Book Id");
-//
-//            String userInput = scanner.nextLine();
-//
-//            System.out.println(bookDao.getBook(Integer.parseInt(userInput)));
         }
     }
 
