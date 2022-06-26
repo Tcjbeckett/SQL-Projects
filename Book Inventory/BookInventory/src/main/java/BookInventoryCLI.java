@@ -15,9 +15,10 @@ public class BookInventoryCLI {
     private static final String MAIN_MENU_OPTION_DISPLAY_BOOKS_BY_AUTHOR_ID = "Display Book Details By Author Id";
 
     private static final String MAIN_MENU_OPTION_ADD_BOOK = "Add a New Book";
+    private static final String MAIN_MENU_OPTION_UPDATE_SALE_PRICE = "Update Book Sale Price";
     private static final String MAIN_MENU_OPTIONS_DISPLAY_AUTHOR = "Display Author Details";
     private static final String MAIN_MENU_OPTIONS_EXIT = "Exit";
-    private static final String[] MAIN_MENU_OPTIONS = {MAIN_MENU_OPTION_DISPLAY_BOOKS, MAIN_MENU_OPTION_DISPLAY_ALL_BOOKS, MAIN_MENU_OPTION_DISPLAY_BOOKS_BY_AUTHOR_ID, MAIN_MENU_OPTION_ADD_BOOK, MAIN_MENU_OPTIONS_DISPLAY_AUTHOR, MAIN_MENU_OPTIONS_EXIT};
+    private static final String[] MAIN_MENU_OPTIONS = {MAIN_MENU_OPTION_DISPLAY_BOOKS, MAIN_MENU_OPTION_DISPLAY_ALL_BOOKS, MAIN_MENU_OPTION_DISPLAY_BOOKS_BY_AUTHOR_ID, MAIN_MENU_OPTION_ADD_BOOK, MAIN_MENU_OPTION_UPDATE_SALE_PRICE, MAIN_MENU_OPTIONS_DISPLAY_AUTHOR, MAIN_MENU_OPTIONS_EXIT};
 
     public static BookDao bookDao;
     private Menu menu = new Menu(System.in, System.out);
@@ -85,6 +86,16 @@ public class BookInventoryCLI {
                     newBook.setSale_price(Integer.parseInt(newBookSalePrice));
                     newBook = bookDao.createBook(newBook);
                     System.out.println("\n*** " + newBook.getTitle() + " has been created ***");
+                    run();
+
+                }else if(choice.equals("Update Book Sale Price")){
+                    String selectedBook = getUserInput("Enter the Book Id you would like to update");
+                    String newSalePrice = getUserInput("Enter new sale price");
+                    Book updatedBook = new Book();
+                    updatedBook.setSale_price(Integer.parseInt(newSalePrice));
+                    updatedBook.setBook_id(Integer.parseInt(selectedBook));
+                    bookDao.updateBook(updatedBook);
+                    System.out.println("\n*** The sale price has been updated to " + newSalePrice + " *** \n");
                     run();
 
                 }else if (choice.equals("Display Author Details")) {

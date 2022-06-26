@@ -65,6 +65,13 @@ public class JdbcBookDao implements BookDao {
         return newBook;
     }
 
+    @Override
+    public Book updateBook(Book updatedBook){
+        String sql = "UPDATE book SET sale_price = ? WHERE book_id = ?";
+        jdbcTemplate.update(sql, updatedBook.getSale_price(), updatedBook.getBook_id());
+        return updatedBook;
+    }
+
 
     private Book mapToBook(SqlRowSet results){
         Book book = new Book();

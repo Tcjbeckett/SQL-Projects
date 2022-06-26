@@ -13,4 +13,7 @@ public interface BookDao {
     List<Book> getBooksByAuthorId(int authorId);
 
     Book createBook(Book newBook);
+
+    Book updateBook(Book updatedBook);
+    //**updateBook updates sale price only**//
 }
