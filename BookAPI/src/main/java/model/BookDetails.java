@@ -72,4 +72,16 @@ public class BookDetails {
     public void setFormat(String format) {
         this.format = format;
     }
+
+    @Override
+    public String toString() {
+        return "BookDetails{" +
+                "pageNumbers=" + pageNumbers +
+                ", byStatement='" + byStatement + '\'' +
+                ", title='" + title + '\'' +
+                ", publishers='" + publishers + '\'' +
+                ", description='" + description + '\'' +
+                ", format='" + format + '\'' +
+                '}';
+    }
 }
