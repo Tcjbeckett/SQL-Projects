@@ -1,7 +1,13 @@
 package Services;
 
-import model.Book;
+import model.BookDetails;
+import model.BookDetails;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
+
+
+import java.math.BigInteger;
+import java.util.List;
 
 public class BookAPIService {
     public static final String API_BASE_URL = "https://openlibrary.org/api/books?bibkeys=";
@@ -10,8 +16,16 @@ public class BookAPIService {
 
     private RestTemplate restTemplate = new RestTemplate();
 
-    public Book getBook(int isbn){
-        Book books = restTemplate.getForObject(API_BASE_URL + isbn + API_SECONDARY_URL, Book.class);
-        return books;
+
+
+
+    public void getBook(String isbn13){
+        String url = API_BASE_URL + isbn13 + API_SECONDARY_URL;
+        BookDetails response = restTemplate.getForObject(url, BookDetails.class);
+
+        System.out.println(response);
+
     }
+
+
 }
