@@ -1,9 +1,5 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.Date;
-
-import com.fasterxml.jackson.annotation.JacksonInject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 
