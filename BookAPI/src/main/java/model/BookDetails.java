@@ -9,9 +9,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class BookDetails {
 
-//    @JsonProperty("bib_key")
-//    private String bibKey;
-
     @JsonProperty("number_of_pages")
     private int pageNumbers;
 
