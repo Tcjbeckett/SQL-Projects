@@ -1,4 +1,4 @@
-package model;
+package dev.tcjbeckett.booksapi.util.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
