@@ -20,10 +20,25 @@ public class CodewarsController {
         this.service = codeWarsApiService;
     }
 
-    @RequestMapping(path = "", method = RequestMethod.GET)
+    @RequestMapping(path = "/user", method = RequestMethod.GET)
     public User getUserInfo(){
         return service.getUser("tcjbeckett");
     }
+
+//    @RequestMapping
+//    public String hi(){
+//        return "Hi";
+//    }
+
+    @RequestMapping(path = "", method = RequestMethod.GET)
+    public User getOneUser(){
+        return service.getOneUser("tcjbeckett");
+    }
+
+//    @RequestMapping(path = "", method = RequestMethod.GET)
+//    public User[] getUserInfoList(String userID){
+//        return service.getUserInfoList("tcjbeckett");
+//    }
 
 //    @RequestMapping(path = "", method = RequestMethod.GET)
 //    public ArrayList<UserListItems> getUserInfomation(){
